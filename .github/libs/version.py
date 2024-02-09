@@ -262,14 +262,15 @@ for f in files:
     os.popen(f'git commit --author="{author_match.group(1)}" -m "{commit_dict["commit_message"]}"').read()
 
     
-    
+print('push')
 push = os.popen(f'git push').read() 
-print(push
-      )
-
+print(push)
 if 'cannot' in push.lower() or 'error' in push.lower(): 
     import sys
-    sys.exit(push)
+    sys.exit('failed on push')
 
+
+
+print('tag and release')
 if tag.UPDATE_REQUIRED and tag.branch == 'main':
     release.newrelease(tag.owner,tag.repo,tag.NEWVERSION,'\n'.join(tag.comment),title=f'{mip} (Controlled Vocabularies) {tag.NEWVERSION}')

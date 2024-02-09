@@ -21,8 +21,14 @@ import argparse
 from urllib.request import Request, urlopen
 from checksum_tools import validate_checksum,calculate_checksum
 from datetime import datetime
+import tag
+import release
 
-prefix = 'CMIP6Plus_'
+import sys 
+# sys.exit(tag.NEWVERSION)
+
+mip = 'CMIP6Plus'
+prefix = f'{mip}_'
 main = 'main'
 metadata_loc = 'Header'
 
@@ -43,45 +49,50 @@ maintainers = json.loads(raw_data.decode('utf-8'))
 # get repo information
 ##########################################
 
-tag = os.popen("git describe --tags --abbrev=0 --always").read().strip() or ''
-# release_date = subprocess.check_output(["git", "log", "-1", "--format=%aI", tag]).strip().decode("utf-8")
+# tag_number = os.popen("git describe --tag_numbers --abbrev=0 --always").read().strip() or ''
+tag_number = tag.NEWVERSION
+# release_date = subprocess.check_output(["git", "log", "-1", "--format=%aI", tag_number]).strip().decode("utf-8")
 
 files = glob.glob(f'{prefix}*.json')
 
 ##########################################
 # read api keys
 ##########################################
-parser = argparse.ArgumentParser(description="Retrieve details for the latest tag of a GitHub repository.")
+parser = argparse.ArgumentParser(description="Retrieve details for the latest tag_number of a GitHub repository.")
 parser.add_argument("-t","--token" ,help="token number")
 parser.add_argument("-b","--branch" ,help="branch name")
 parser.add_argument('-a','--all', action='store_false',help='If added, we will overwrite ALL the files. ')
 
 args = parser.parse_args()
 
+if tag.UPDATE_REQUIRED:
+    args.all=True
+    release.clean()
+
 
     ##########################################
-    # Get the Tag information from the CVs
+    # Get the Tag_number information from the CVs
     ##########################################
 def get_latest_repo(repo_owner, repo_name, github_token=None):
-    tags_url = f"https://api.github.com/repos/{repo_owner}/{repo_name}/releases/latest"
+    tag_numbers_url = f"https://api.github.com/repos/{repo_owner}/{repo_name}/releases/latest"
     headers = {"Authorization": f"Bearer {github_token}"} if github_token else {}
 
     try:
-        # Get the list of tags
-        request = Request(tags_url, headers=headers)
+        # Get the list of tag_numbers
+        request = Request(tag_numbers_url, headers=headers)
         with urlopen(request) as response:
-            tags_data = json.loads(response.read())
+            tag_numbers_data = json.loads(response.read())
 
-        if tags_data:
-            # Select the latest tag
-            latest_tag = tags_data
-            tag_name = latest_tag['tag_name']
-            published = latest_tag['published_at']
-            # commit_sha = latest_tag['commit']['sha']
-            html = latest_tag['html_url']
+        if tag_numbers_data:
+            # Select the latest tag_number
+            latest_tag_number = tag_numbers_data
+            tag_number_name = latest_tag_number['tag_number_name']
+            published = latest_tag_number['published_at']
+            # commit_sha = latest_tag_number['commit']['sha']
+            html = latest_tag_number['html_url']
 
 
-            return {"tag_name": tag_name, "date": published, "url":html}
+            return {"tag_number_name": tag_number_name, "date": published, "url":html}
 
     except Exception as e:
         print(f"Error: {e}")
@@ -117,16 +128,6 @@ for f in files:
     commit_info = False
     
     
-    '''
-    commit 8f25db6f5551574eb826c21ce404d2e111bd2db2
-    Merge: caa0888 124d96c
-    Author: Daniel Ellis <daniel.ellis@ext.esa.int>
-    Date:   Fri Jan 26 16:03:55 2024 +0000
-
-    Merge remote-tracking branch 'origin/source_id_MPI-ESM1-2-LR' into merge_src_pull_requests
-
-
-    '''
 
     commit_blocks = re.split(r'\n(?=commit\s)', full)
     for c in commit_blocks:
@@ -194,7 +195,7 @@ for f in files:
     template =  OrderedDict({
         # collection
         "collection":OrderedDict({
-            "CV_collection_version":CVs['tag_name'],
+            "CV_collection_version":CVs['tag_number_name'],
             "CV_collection_modified":CVs['date'],
             "CV_collection_release":CVs['url'],
             "specs_doc": "v6.5.0"
@@ -265,13 +266,5 @@ for f in files:
     
 print(os.popen(f'git push').read())
 
-# checksum. If checksum is not the same, update.
-
-
-
-'''
-export PATH="${HOME}/Applications/Docker.app/Contents/Resources/bin:$PATH"
-
-act -s GITHUB_TOKEN="$(gh auth token)" --container-architecture linux/amd64 -b & sleep 4 
-
-'''
+if tag.REQUIRES_UPDATE and tag.branch == 'main':
+    release.newrelease(tag.owner,tag.repo,tag.NEWVERSION,'\n'.join(comment),title=f'{mip} (Controlled Vocabularies) {tag.NEWVERSION}')

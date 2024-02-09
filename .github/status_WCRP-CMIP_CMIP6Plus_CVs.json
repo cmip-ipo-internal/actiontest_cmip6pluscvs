@@ -1,0 +1,80 @@
+{
+    "repo": {
+        "mipera": "CMIP6Plus",
+        "name": "CMIP6Plus_CVs",
+        "url": "https://github.com/WCRP-CMIP/CMIP6Plus_CVs",
+        "version": "v6.5.6.3"
+    },
+    "changelog": {
+        "last_changed": "2024/02/09 21:47 UTC",
+        "comment": [
+            "",
+            "",
+            "Version Updated: v6.5.0.0 \u2192 v6.5.6.3",
+            "",
+            "v{w}.{x}.{y}.{z}.",
+            "For further information: [see the wiki](wikiurl)",
+            "",
+            " ",
+            "-- \u03b4y resets z values --",
+            "[y] version number \u2191 :: experiment_id (hist-piGHG)",
+            "[y] version number \u2191 :: experiment_id (hist-piSol)",
+            "[y] version number \u2191 :: experiment_id (hist-piVolc)",
+            "[y] version number \u2191 :: experiment_id (hist-piAer)",
+            "[y] version number \u2191 :: experiment_id (hist-noLu)",
+            "[y] version number \u2191 :: experiment_id (hist-piTotalO3)",
+            "[z] version number \u2191 :: source_id (MPI-ESM1-2-LR)",
+            "[z] version number \u2191 :: source_id (MIROC6)",
+            "[z] version number \u2191 :: source_id (MPI-ESM1-2-HR)"
+        ]
+    },
+    "source_id": {
+        "counts": 4,
+        "keys": [
+            "HadGEM3-GC31-LL",
+            "MPI-ESM1-2-LR",
+            "MPI-ESM1-2-HR",
+            "MIROC6"
+        ]
+    },
+    "experiment_id": {
+        "counts": 28,
+        "keys": [
+            "1pctCO2",
+            "abrupt-4xCO2",
+            "amip",
+            "esm-hist",
+            "esm-piControl",
+            "esm-piControl-spinup",
+            "fut-Aer",
+            "fut-GHG",
+            "fut-lu",
+            "fut-sol",
+            "fut-totalO3",
+            "fut-volc",
+            "hist-GHG",
+            "hist-aer",
+            "hist-lu",
+            "hist-nat",
+            "hist-noLu",
+            "hist-piGHG",
+            "hist-piAer",
+            "hist-piSol",
+            "hist-piTotalO3",
+            "hist-piVolc",
+            "hist-sol",
+            "hist-totalO3",
+            "hist-volc",
+            "historical",
+            "piControl",
+            "piControl-spinup"
+        ]
+    },
+    "activity_id": {
+        "counts": 2,
+        "keys": [
+            "CMIP",
+            "LESFMIP"
+        ]
+    }
+}

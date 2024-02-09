@@ -2,7 +2,7 @@ import json, os
 from datetime import datetime, timezone
 from collections import OrderedDict
 
-version = os.popen('git tag -l').read().strip()
+version = os.popen('git tag -l').read().strip().split('\n')[-1]
 w,x,y,z = map(int,version.strip('v').strip().split('.'))
 branch = os.popen('git rev-parse --abbrev-ref HEAD').read().strip()
 '''

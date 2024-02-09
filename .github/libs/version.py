@@ -81,18 +81,18 @@ def get_latest_repo(repo_owner, repo_name, github_token=None):
         # Get the list of tag_numbers
         request = Request(tag_numbers_url, headers=headers)
         with urlopen(request) as response:
-            tag_numbers_data = json.loads(response.read())
+            tag_data = json.loads(response.read())
 
-        if tag_numbers_data:
+        if tag_data:
             # Select the latest tag_number
-            latest_tag_number = tag_numbers_data
-            tag_number_name = latest_tag_number['tag_number_name']
-            published = latest_tag_number['published_at']
-            # commit_sha = latest_tag_number['commit']['sha']
-            html = latest_tag_number['html_url']
+            latest_tag = tag_numbers_data
+            tag_name = latest_tag['tag_number_name']
+            published = latest_tag['published_at']
+            # commit_sha = latest_tag['commit']['sha']
+            html = latest_tag['html_url']
 
 
-            return {"tag_number_name": tag_number_name, "date": published, "url":html}
+            return {"tag_number_name": tag_name, "date": published, "url":html}
 
     except Exception as e:
         print(f"Error: {e}")
@@ -263,8 +263,13 @@ for f in files:
 
     
     
-    
-print(os.popen(f'git push').read())
+push = os.popen(f'git push').read() 
+print(push
+      )
 
-if tag.REQUIRES_UPDATE and tag.branch == 'main':
-    release.newrelease(tag.owner,tag.repo,tag.NEWVERSION,'\n'.join(comment),title=f'{mip} (Controlled Vocabularies) {tag.NEWVERSION}')
+if 'cannot' in push.lower() or 'error' in push.lower(): 
+    import sys
+    sys.exit(push)
+
+if tag.UPDATE_REQUIRED and tag.branch == 'main':
+    release.newrelease(tag.owner,tag.repo,tag.NEWVERSION,'\n'.join(tag.comment),title=f'{mip} (Controlled Vocabularies) {tag.NEWVERSION}')

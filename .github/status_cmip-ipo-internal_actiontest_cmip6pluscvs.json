@@ -1,44 +1,23 @@
 {
     "repo": {
         "mipera": "CMIP6Plus",
-        "repo": "actiontest_cmip6pluscvs",
+        "name": "actiontest_cmip6pluscvs",
         "url": "https://github.com/cmip-ipo-internal/actiontest_cmip6pluscvs",
-        "version": "v6.5.6.0"
+        "version": "v6.5.0.0"
     },
     "changelog": {
-        "last_changed": "2024/02/09 22:26 UTC",
-        "comment": [
-            "",
-            "",
-            "Version Updated: v6.5.0.1 \u2192 v6.5.6.0",
-            "",
-            "v{w}.{x}.{y}.{z}.",
-            "For further information: [see the wiki](wikiurl)",
-            "",
-            " ",
-            "-- \u03b4y resets z values --",
-            "[y] version number \u2191 :: experiment_id (hist-noLu)",
-            "[y] version number \u2191 :: experiment_id (hist-piTotalO3)",
-            "[y] version number \u2191 :: experiment_id (hist-piSol)",
-            "[y] version number \u2191 :: experiment_id (hist-piGHG)",
-            "[y] version number \u2191 :: experiment_id (hist-piAer)",
-            "[y] version number \u2191 :: experiment_id (hist-piVolc)",
-            "[z] version number \u2191 :: source_id (MIROC6)",
-            "[z] version number \u2191 :: source_id (MPI-ESM1-2-HR)",
-            "[z] version number \u2191 :: source_id (MPI-ESM1-2-LR)"
-        ]
+        "last_changed": "2024/02/09 20:37 UTC",
+        "comment": ""
     },
-    "source_id": {
-        "counts": 4,
+    "activity_id": {
+        "counts": 0,
         "keys": [
-            "HadGEM3-GC31-LL",
-            "MPI-ESM1-2-LR",
-            "MPI-ESM1-2-HR",
-            "MIROC6"
+            "CMIP",
+            "LESFMIP"
         ]
     },
     "experiment_id": {
-        "counts": 28,
+        "counts": 0,
         "keys": [
             "1pctCO2",
             "abrupt-4xCO2",
@@ -56,12 +35,6 @@
             "hist-aer",
             "hist-lu",
             "hist-nat",
-            "hist-noLu",
-            "hist-piGHG",
-            "hist-piAer",
-            "hist-piSol",
-            "hist-piTotalO3",
-            "hist-piVolc",
             "hist-sol",
             "hist-totalO3",
             "hist-volc",
@@ -70,11 +43,10 @@
             "piControl-spinup"
         ]
     },
-    "activity_id": {
-        "counts": 2,
+    "source_id": {
+        "counts": 0,
         "keys": [
-            "CMIP",
-            "LESFMIP"
+            "HadGEM3-GC31-LL"
         ]
     }
 }

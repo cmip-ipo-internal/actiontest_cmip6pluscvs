@@ -3,25 +3,32 @@
         "mipera": "CMIP6Plus",
         "repo": "actiontest_cmip6pluscvs",
         "url": "https://github.com/cmip-ipo-internal/actiontest_cmip6pluscvs",
-        "version": "v6.5.6.0"
+        "version": "v6.5.6.1"
     },
     "changelog": {
-        "last_changed": "2024/02/12 15:56 UTC",
+        "last_changed": "2024/02/12 16:06 UTC",
         "comment": [
             "",
             "",
-            "## Version Updated: v6.5.6.0 \u2192 v6.5.6.0",
+            "## Version Updated: v6.5.6.0 \u2192 v6.5.6.1",
             "",
             ">> `v\\{w\\}.\\{x\\}.\\{y\\}.\\{z\\}`",
             "For further information: [see the wiki](https://wiki.mipcvs.dev)",
             "",
-            " "
+            " ",
+            "#### <ins>Version index \"z\" == 1</ins>",
+            "- [x] **z** version number \u2191 :: *source_id (MIROC6)*",
+            "- [x] **z** version number \u2191 :: *source_id (MPI-ESM1-2-LR)*",
+            "- [x] **z** version number \u2191 :: *source_id (MPI-ESM1-2-HR)*"
         ]
     },
     "source_id": {
         "counts": 4,
         "keys": [
-            "HadGEM3-GC31-LL"
+            "HadGEM3-GC31-LL",
+            "MPI-ESM1-2-LR",
+            "MPI-ESM1-2-HR",
+            "MIROC6"
         ]
     },
     "experiment_id": {

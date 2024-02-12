@@ -8,8 +8,8 @@
         },
         "file": {
             "checksum": "md5: 0f0c81450ca204c2c537226f19927022",
-            "product_update_commit": "bfab1921a2e62bd4bcbbf65d6edd04199b1d2cef",
-            "product_modified": "Sat Feb 10 02:32:04 2024 +0000",
+            "product_update_commit": "1596d2338c33b71ca0b7717555eb89b460e8f818",
+            "product_modified": "Sat Feb 10 02:32:34 2024 +0000",
             "product_note": "Tag and Release (#56)"
         },
         "author": "Daniel Ellis",

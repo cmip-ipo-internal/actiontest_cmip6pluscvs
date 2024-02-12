@@ -57,7 +57,8 @@ if branch == 'main':
             diff = set(new[f].get('keys')) - set(old.get(f,new[f]).get('keys'))
             if len(diff):
                 # and old:
-                locals()[vnum] += len(diff)
+                # only add one so use bool 
+                locals()[vnum] += bool(len(diff)) 
 
                     
                 UPDATE_REQUIRED = True

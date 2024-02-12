@@ -21,10 +21,7 @@
     "source_id": {
         "counts": 4,
         "keys": [
-            "HadGEM3-GC31-LL",
-            "MPI-ESM1-2-LR",
-            "MPI-ESM1-2-HR",
-            "MIROC6"
+            "HadGEM3-GC31-LL"
         ]
     },
     "experiment_id": {

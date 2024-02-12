@@ -8,8 +8,8 @@
         },
         "file": {
             "checksum": "md5: 707ac1977a119878fc4fa113b3e2e67f",
-            "required_global_attributes_update_commit": "bfab1921a2e62bd4bcbbf65d6edd04199b1d2cef",
-            "required_global_attributes_modified": "Sat Feb 10 02:32:04 2024 +0000",
+            "required_global_attributes_update_commit": "042b4a99f7c11444276cf0495eb1a56cedd8111d",
+            "required_global_attributes_modified": "Sat Feb 10 02:32:34 2024 +0000",
             "required_global_attributes_note": "Tag and Release (#56)"
         },
         "author": "Daniel Ellis",

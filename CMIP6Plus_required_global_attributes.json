@@ -1,15 +1,15 @@
 {
     "Header": {
         "collection": {
-            "CV_collection_version": "v6.5.6.0",
+            "CV_collection_version": "v6.5.6.1",
             "CV_collection_modified": "2023-11-20T16:32:10Z",
             "CV_collection_release": "https://github.com/WCRP-CMIP/CMIP6Plus_CVs/releases/tag/v6.5.0.0",
             "specs_doc": "v6.5.0"
         },
         "file": {
             "checksum": "md5: 707ac1977a119878fc4fa113b3e2e67f",
-            "required_global_attributes_update_commit": "042b4a99f7c11444276cf0495eb1a56cedd8111d",
-            "required_global_attributes_modified": "Sat Feb 10 02:32:34 2024 +0000",
+            "required_global_attributes_update_commit": "9d29e4917507a60695b5e19ce2be4e1786a6402d",
+            "required_global_attributes_modified": "Mon Feb 12 15:56:42 2024 +0000",
             "required_global_attributes_note": "Tag and Release (#56)"
         },
         "author": "Daniel Ellis",
